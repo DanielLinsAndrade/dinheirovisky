@@ -1,0 +1,6 @@
+* text=auto
+# Preserve upstream license formatting, including intentional trailing spaces.
+public/licenses/*.txt -whitespace
+*.sql text eol=lf
+*.png binary
+*.ico binary

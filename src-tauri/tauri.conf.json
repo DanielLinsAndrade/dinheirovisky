@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Dinheirovisky",
+  "version": "0.1.0",
+  "identifier": "com.dinheirovisk.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://127.0.0.1:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [{ "label": "main", "title": "Dinheirovisky", "decorations": false, "width": 1100, "height": 760, "minWidth": 600, "minHeight": 480 }],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' ipc: http://ipc.localhost; style-src 'self'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'; frame-src 'none'; worker-src 'self'; script-src 'self' 'wasm-unsafe-eval'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico"],
+    "windows": { "nsis": { "installMode": "currentUser", "languages": ["PortugueseBR"], "displayLanguageSelector": false, "installerIcon": "icons/icon.ico", "uninstallerIcon": "icons/icon.ico", "installerHooks": "installer/identity.nsh" } }
+  }
+}

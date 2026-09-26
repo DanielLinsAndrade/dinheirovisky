@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Validate source and production bundle
+        shell: powershell
+        run: ./tests/validate.ps1 -SkipNative
+# Desktop acceptance needs an unlocked interactive Windows session; run npm run validate locally.
+# No release, tag, artifact upload or repository-write permission is configured.

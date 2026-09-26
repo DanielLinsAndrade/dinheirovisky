@@ -1,0 +1,360 @@
+.dashboard-month {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+.dashboard-balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 0;
+  border-block: 1px solid var(--c-bccbbc);
+}
+.dashboard-balance p {
+  margin: 0 0 10px;
+  color: var(--c-526259);
+}
+.dashboard-balance strong {
+  display: block;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.dashboard-balance small {
+  display: block;
+  margin-top: 12px;
+  line-height: 1.6;
+  color: var(--c-526259);
+}
+.dashboard-section {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--c-d8e0d4);
+  min-width: 0;
+}
+.dashboard-section h2 {
+  margin-top: 0;
+}
+.dashboard-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 26px 0;
+}
+.dashboard-metrics dt {
+  font-size: 13px;
+  color: var(--c-526259);
+}
+.dashboard-metrics > div {
+  display: block;
+  min-width: 0;
+  border-bottom: 0;
+}
+.dashboard-metrics dd {
+  margin: 8px 0 0;
+  font-size: clamp(18px, 2.6vw, 26px);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.dashboard-comparison {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--c-526259);
+}
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 32px;
+}
+.trend-table {
+  margin-top: 16px;
+  font-size: 12px;
+  table-layout: fixed;
+}
+.trend-table tbody th {
+  min-width: 0;
+  font-size: 11px;
+}
+.trend-table td {
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.chart-track {
+  display: block;
+  background: var(--c-e5eae0);
+  height: 6px;
+  margin-top: 9px;
+  border-radius: 2px;
+}
+.chart-track > span {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+}
+.income-bar {
+  background: var(--c-397250);
+}
+.expense-bar {
+  background: var(--c-9b6549);
+}
+.category-ranking {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+.category-ranking li {
+  margin: 0 0 24px;
+}
+.category-ranking li > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.category-ranking strong {
+  white-space: nowrap;
+  font-weight: 550;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 760px) {
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .dashboard-metrics {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .dashboard-balance {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Dashboard: uma faixa de métricas e duas camadas de leitura. */
+.dashboard-home {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 0 var(--space-6);
+  align-items: start;
+}
+.dashboard-home > .dashboard-toolbar,
+.dashboard-home > .dashboard-context,
+.dashboard-home > .financial-alerts,
+.dashboard-home > [role],
+.dashboard-overview {
+  grid-column: 1 / -1;
+}
+.dashboard-toolbar {
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.dashboard-toolbar .dashboard-month {
+  margin-right: auto;
+}
+.dashboard-overview {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.8fr) minmax(0, 1.5fr);
+  gap: var(--space-6);
+  padding: var(--space-5) 0;
+  border-block: 1px solid var(--border);
+}
+.dashboard-overview .dashboard-balance {
+  display: block;
+  padding: 0;
+  border: 0;
+}
+.dashboard-overview .dashboard-balance strong {
+  font-size: clamp(25px, 3vw, 36px);
+}
+.dashboard-overview .dashboard-balance small {
+  font-size: 11px;
+  margin: var(--space-2) 0;
+}
+.dashboard-overview .dashboard-section {
+  padding: 0;
+  border: 0;
+}
+.dashboard-overview h2 {
+  font-size: 16px;
+  margin-bottom: var(--space-2);
+}
+.dashboard-overview .field-help,
+.dashboard-comparison {
+  font-size: 11px;
+  line-height: 1.5;
+  margin: var(--space-2) 0;
+}
+.dashboard-overview .dashboard-metrics {
+  margin: var(--space-4) 0;
+  gap: var(--space-4);
+}
+.dashboard-overview .dashboard-metrics > div {
+  padding: 0;
+}
+.dashboard-overview .dashboard-metrics dd {
+  font-size: clamp(18px, 2vw, 25px);
+}
+.dashboard-section h2 {
+  font-size: 18px;
+}
+.dashboard-section .field-help {
+  font-size: 11px;
+  line-height: 1.6;
+}
+.dashboard-home [aria-labelledby="recent-heading"] table {
+  font-size: 12px;
+}
+.dashboard-home [aria-labelledby="recent-heading"] th,
+.dashboard-home [aria-labelledby="recent-heading"] td {
+  padding: 10px 8px;
+  min-width: 0;
+}
+.dashboard-home [aria-labelledby="recent-heading"] .money {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.trend-lines {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: var(--space-3);
+}
+.trend-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.trend-income {
+  stroke: var(--positive);
+  fill: var(--positive);
+}
+.trend-expense {
+  stroke: var(--negative);
+  fill: var(--negative);
+}
+.trend-expense polyline {
+  stroke-dasharray: 5 4;
+}
+.trend-lines text {
+  fill: var(--text-muted);
+  font-size: 11px;
+  stroke: none;
+}
+.trend-legend {
+  display: flex;
+  gap: var(--space-4);
+  font-size: 12px;
+}
+.trend-legend span:first-child {
+  color: var(--positive);
+}
+.trend-legend span:last-child {
+  color: var(--negative);
+}
+.trend-values summary,
+.recurrence-preview summary {
+  cursor: pointer;
+  font-size: 12px;
+  padding-block: var(--space-3);
+}
+.trend-values summary:focus-visible,
+.recurrence-preview summary:focus-visible,
+.commitments:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.due-horizons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.due-horizons .ui-button {
+  min-height: 32px;
+  padding: 6px 8px;
+  font-size: 11px;
+}
+.due-horizons [aria-pressed="true"] {
+  background: var(--surface-selected);
+  color: var(--text);
+  border-color: var(--border-control);
+}
+.due-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.due-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.due-list li > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.due-list strong {
+  font-weight: 600;
+}
+.due-list small {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.due-amount {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.due-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--space-2);
+  gap: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.due-pagination .ui-button {
+  font-size: 11px;
+  min-height: 30px;
+  padding: 4px;
+}
+.due-payments > .ui-button {
+  padding-inline: 0;
+  font-size: 12px;
+}
+.recurrence-preview {
+  border-top: 1px solid var(--border);
+  margin-top: var(--space-3);
+}
+.recurrence-preview ul {
+  font-size: 12px;
+  padding-left: 18px;
+  line-height: 1.6;
+}
+.recurrence-preview li {
+  margin-block: var(--space-2);
+}
+@media (max-width: 1000px) {
+  .dashboard-home {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dashboard-overview {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-4);
+  }
+  .dashboard-overview .dashboard-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .dashboard-overview .dashboard-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

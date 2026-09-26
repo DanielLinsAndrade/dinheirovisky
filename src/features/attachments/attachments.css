@@ -1,0 +1,19 @@
+.attachment-preview {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.attachment-preview[hidden] {
+  display: none;
+}
+.attachment-list {
+  padding: 0;
+  list-style: none;
+}
+.attachment-list li {
+  padding-block: var(--space-3);
+  overflow-wrap: anywhere;
+}
+.attachment-list .ui-button {
+  margin: var(--space-1);
+}

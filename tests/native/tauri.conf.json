@@ -1,0 +1,19 @@
+{
+  "productName": "Dinheirovisky Acceptance",
+  "identifier": "com.dinheirovisk.validation.acceptance",
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "decorations": false,
+        "visible": false,
+        "focus": false,
+        "title": "Dinheirovisky — Validação",
+        "width": 1100,
+        "height": 760,
+        "minWidth": 600,
+        "minHeight": 480
+      }
+    ]
+  }
+}
