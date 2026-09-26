@@ -12,15 +12,15 @@ Preparação autorizada em 26/09/2026: commit, push, tag anotada e GitHub Releas
 - [x] Validação completa: dependências, TypeScript/Vite, frontend, lint/format, Rust/rustfmt/Clippy, SQLite e aceitação nativa isolada.
 - [x] Build final normal com `npm run build:release`, remapeamento e verificação de caminhos locais.
 - [x] Conferência de versão, identidade, ícone, arquitetura, tamanho, SHA-256 e Authenticode do instalador final.
-- [ ] Revisão final do diff e commit de release.
+- [x] Revisão final do diff e commit de release.
 
 ## GitHub
 
-- [ ] Push do commit de release e CI verde desse commit.
-- [ ] Tag anotada `v1.0.0` apontando exatamente para o commit aprovado pela CI; push somente dessa tag.
-- [ ] Draft `Dinheirovisky v1.0.0`, sem prerelease e sem publicação.
-- [ ] Assets: somente `Dinheirovisky_1.0.0_x64-setup.exe` e `SHA256SUMS.txt`.
-- [ ] Download dos assets do draft e conferência de tamanho e SHA-256.
+- [x] Push do commit de release e CI verde desse commit.
+- [x] Tag anotada `v1.0.0` apontando exatamente para o commit aprovado pela CI; push somente dessa tag.
+- [x] Draft `Dinheirovisky v1.0.0`, sem prerelease e sem publicação.
+- [x] Assets: somente `Dinheirovisky_1.0.0_x64-setup.exe` e `SHA256SUMS.txt`.
+- [x] Download dos assets do draft e conferência de tamanho e SHA-256.
 - [ ] **PENDENTE — publicar release após autorização final e validar o download público.**
 
 ## Revisão antes da publicação
@@ -41,7 +41,11 @@ Instalador final: **5.858.917 bytes**, ProductName/FileDescription `Dinheirovisk
 
 SHA-256: `bc9910d9da556113f86e86ae848da8ae2bda217f0e63bdb35695a6c432ef8cac`, também registrado no arquivo público `SHA256SUMS.txt`, sem caminhos locais.
 
-Os resultados finais de CI, commit, tag e draft serão registrados aqui após sua verificação. Binários entram somente nos assets selecionados da release; logs, bancos e capturas de teste permanecem locais e ignorados.
+Commit de release e alvo da tag: `ca918a4e2e8244b152f0e34cf2b969a288015444` (`chore(release): prepara Dinheirovisky v1.0.0`). [CI aprovada](https://github.com/DanielLinsAndrade/dinheirovisky/actions/runs/36264255284), incluindo testes e bundle de produção. Tag anotada `v1.0.0`, mensagem `Dinheirovisky v1.0.0`, enviada e conferida no remoto.
+
+[Draft para revisão do mantenedor](https://github.com/DanielLinsAndrade/dinheirovisky/releases/tag/untagged-2fd94fa881c335527559): título, tag, commit e notas conferidos; `draft=true`, `prerelease=false`, sem data de publicação. Somente os dois assets previstos foram anexados, baixados novamente e verificados. O instalador baixado tem o tamanho e o SHA-256 registrados acima.
+
+Esta atualização documental registra fatos posteriores à criação do draft e não move a tag. Binários entram somente nos assets selecionados da release; logs, bancos e capturas de teste permanecem locais e ignorados.
 
 A CI valida código e build sem publicar releases ou instaladores. O comando de distribuição é `npm run build:release`; flags personalizadas devem usar `CARGO_ENCODED_RUSTFLAGS` para preservar o remapeamento dos caminhos de compilação.
 
@@ -54,4 +58,4 @@ O site não é alterado nesta fase. Após publicar:
 - Instalador: https://github.com/DanielLinsAndrade/dinheirovisky/releases/download/v1.0.0/Dinheirovisky_1.0.0_x64-setup.exe
 - Tamanho: 5.858.917 bytes (aproximadamente 5,59 MiB).
 - Data: registrar a data efetiva de publicação; a data do changelog é 26/09/2026.
-- Status: draft em preparação; o download ainda não está disponível publicamente.
+- Status: draft criado e verificado; o download ainda não está disponível publicamente.
