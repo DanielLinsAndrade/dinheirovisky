@@ -6,6 +6,7 @@ import {
   fireEvent,
   cleanup,
   waitFor,
+  act,
 } from "@testing-library/react";
 import { TransactionsPage } from "./TransactionsPage";
 import * as service from "../../services/transactions";
@@ -50,7 +51,9 @@ it("Ctrl+N obedece ao botão sem conta ativa", async () => {
   expect(screen.queryByRole("dialog")).toBeNull();
 });
 it("Ctrl+N abre uma vez e Escape fecha sem gravar", async () => {
-  render(<TransactionsPage />);
+  await act(async () => {
+    render(<TransactionsPage />);
+  });
   await waitFor(() =>
     expect(
       (
