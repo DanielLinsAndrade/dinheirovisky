@@ -1,4 +1,4 @@
-* text=auto
+* text=auto eol=lf
 # Preserve upstream license formatting, including intentional trailing spaces.
 public/licenses/*.txt -whitespace
 *.sql text eol=lf
