@@ -25,9 +25,9 @@ Checked 'rust-format' 'cargo.exe' @('fmt','--manifest-path','src-tauri/Cargo.tom
 Checked 'clippy' 'cargo.exe' @('clippy','--manifest-path','src-tauri/Cargo.toml','--locked','--all-targets','--','-D','warnings')
 if(!$SkipNative){Checked 'native' 'powershell.exe' @('-NoProfile','-ExecutionPolicy','Bypass','-File','tests/native/run.ps1')}
 # Restore the normal production identity after building the isolated acceptance app.
-Checked 'production-bundle' 'powershell.exe' @('-NoProfile','-ExecutionPolicy','Bypass','-File','scripts/build-release.ps1')
+Checked 'production-bundle' 'npm.cmd' @('run','build:release')
 # Use .NET directly: Get-FileHash may be unavailable in inherited PowerShell module paths.
-$artifactHashes = foreach ($artifactPath in @('src-tauri/target/release/dinheirovisk.exe','src-tauri/target/release/bundle/nsis/Dinheirovisky_0.1.0_x64-setup.exe')) {
+$artifactHashes = foreach ($artifactPath in @('src-tauri/target/release/dinheirovisk.exe','src-tauri/target/release/bundle/nsis/Dinheirovisky_1.0.0_x64-setup.exe')) {
   $artifactStream = [IO.File]::OpenRead([IO.Path]::GetFullPath($artifactPath))
   $artifactHasher = [Security.Cryptography.SHA256]::Create()
   try {

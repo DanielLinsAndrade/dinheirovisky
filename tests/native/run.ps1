@@ -17,7 +17,7 @@ function Checked([string]$Tool, [string[]]$Arguments) {
 if(!$SkipBuild) {
   Checked 'powershell.exe' @('-NoProfile','-ExecutionPolicy','Bypass','-File','scripts/build-release.ps1','-Config','tests/native/tauri.conf.json')
 }
-$installer = Join-Path $repo 'src-tauri/target/release/bundle/nsis/Dinheirovisky Acceptance_0.1.0_x64-setup.exe'
+$installer = Join-Path $repo 'src-tauri/target/release/bundle/nsis/Dinheirovisky Acceptance_1.0.0_x64-setup.exe'
 if(!(Test-Path -LiteralPath $installer)){throw 'Isolated installer missing. Run without -SkipBuild.'}
 $installed = Start-Process -FilePath $installer -ArgumentList @('/S',"/D=$installRoot") -PassThru -Wait -WindowStyle Hidden
 if($installed.ExitCode -ne 0){throw "Installation failed: $($installed.ExitCode)"}

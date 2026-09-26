@@ -8,7 +8,7 @@
 
 ## Estado do projeto
 
-Preparação da primeira versão pública. A versão do código é **0.1.0**; a versão e a data do primeiro lançamento ainda serão definidas. Não há instalador público anunciado nesta revisão. Windows x64 é a plataforma validada; outros sistemas ainda não foram homologados.
+A versão **1.0.0** está preparada para a primeira release oficial, mantida como draft até aprovação final. O instalador só ficará disponível publicamente após a publicação da release. Windows x64 é a plataforma validada; outros sistemas ainda não foram homologados.
 
 ## O que você pode fazer
 

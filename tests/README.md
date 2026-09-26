@@ -80,7 +80,7 @@ npm run build:release
 & '.\src-tauri\target\release\dinheirovisk.exe'
 ```
 
-Instalador: `src-tauri/target/release/bundle/nsis/Dinheirovisky_0.1.0_x64-setup.exe`. Builds não têm assinatura digital. O teste de instalação não implica certificação do Windows, simulação de queda de energia ou reinstalação do sistema operacional. As primeiras instalações exigem os pré-requisitos acima; dados de usuário novos e dependências npm reinstaladas são a definição de ambiente limpo exercitada aqui.
+Instalador: `src-tauri/target/release/bundle/nsis/Dinheirovisky_1.0.0_x64-setup.exe`. Builds não têm assinatura digital. O teste de instalação não implica certificação do Windows, simulação de queda de energia ou reinstalação do sistema operacional. As primeiras instalações exigem os pré-requisitos acima; dados de usuário novos e dependências npm reinstaladas são a definição de ambiente limpo exercitada aqui.
 
 ## Cobertura adicional
 

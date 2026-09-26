@@ -1,33 +1,57 @@
-# Checklist da primeira release
+# Checklist da primeira release — v1.0.0
 
-Este documento prepara uma publicação futura. Sua existência e a CI não autorizam publicar.
+Preparação autorizada em 26/09/2026: commit, push, tag anotada e GitHub Release **em draft**. A publicação final depende de revisão e autorização separada.
 
-- [ ] Revisar o conteúdo do commit e confirmar que não há dados privados, segredos ou artefatos locais.
-- [ ] Confirmar MIT e avisos de terceiros preservados na distribuição.
-- [ ] Escolher a versão: manifests atuais em 0.1.0; avaliar 1.0.0 após homologação final ou 1.0.0-rc.1 para teste público inicial.
-- [ ] Atualizar de forma consistente package.json, package-lock.json, Cargo.toml/Cargo.lock, tauri.conf.json e referências dos scripts de teste; conferir a versão exibida em Sobre.
-- [ ] Executar `npm run validate` em Windows com sessão desktop desbloqueada e dados isolados.
+## Preparação
+
+- [x] Versão 1.0.0 nos manifests, lockfiles e referências de testes. Sobre recebe a versão compilada do Rust.
+- [x] Identificador, caminhos de dados, nomes internos e schema preservados.
+- [x] Licença MIT e avisos de terceiros preservados.
+- [x] Notas e changelog preparados com recursos existentes e aviso sobre assinatura.
+- [x] Inspeção dos arquivos públicos antes do build: nenhum banco, backup, memória, relatório privado ou instalador selecionado; os dois e-mails sinalizados pelo scanner pertencem a avisos de terceiros.
+- [x] Validação completa: dependências, TypeScript/Vite, frontend, lint/format, Rust/rustfmt/Clippy, SQLite e aceitação nativa isolada.
+- [x] Build final normal com `npm run build:release`, remapeamento e verificação de caminhos locais.
+- [x] Conferência de versão, identidade, ícone, arquitetura, tamanho, SHA-256 e Authenticode do instalador final.
+- [ ] Revisão final do diff e commit de release.
+
+## GitHub
+
+- [ ] Push do commit de release e CI verde desse commit.
+- [ ] Tag anotada `v1.0.0` apontando exatamente para o commit aprovado pela CI; push somente dessa tag.
+- [ ] Draft `Dinheirovisky v1.0.0`, sem prerelease e sem publicação.
+- [ ] Assets: somente `Dinheirovisky_1.0.0_x64-setup.exe` e `SHA256SUMS.txt`.
+- [ ] Download dos assets do draft e conferência de tamanho e SHA-256.
+- [ ] **PENDENTE — publicar release após autorização final e validar o download público.**
+
+## Revisão antes da publicação
+
 - [ ] Testar manualmente arraste da janela e rolagem com mouse/touchpad físico.
-- [ ] Revisar limitações e resultados, inclusive performance na máquina de referência.
-- [ ] Gerar novamente o bundle normal com `npm run build:release` depois dos testes isolados.
-- [ ] Conferir nome, ícone, versão, funcionamento offline, instalação e desinstalação em ambiente de teste.
-- [ ] Decidir a política de assinatura Windows. Sem certificado, informar claramente o aviso possível do SmartScreen.
-- [ ] Registrar tamanho e SHA-256 do instalador final e executável; preservar logs localmente.
-- [ ] Conferir `git status`, `git diff --cached` e `git ls-files`; criar/revisar o commit final.
-- [ ] Obter autorização explícita para push. Esta fase não autoriza envio.
-- [ ] Após autorização, publicar o commit e conferir a CI.
-- [ ] Criar a tag da versão somente com autorização da fase de publicação.
-- [ ] Preparar draft release, notas revisadas e assets (instalador e arquivo de hashes), sem dados de teste.
-- [ ] Baixar os assets do draft e conferir hashes, instalação e versão.
-- [ ] Revisar links de download e site oficial https://dinheirovisky.app/.
-- [ ] Autorizar e publicar a release; validar o download público.
+- [ ] Revisar resultados e limitações da plataforma de referência. Testes automatizados não substituem homologação em outros equipamentos ou avaliação com leitores de tela.
+- [ ] Confirmar aceite da distribuição sem assinatura. Não foi criado ou utilizado certificado; o SmartScreen pode exibir aviso de editor desconhecido.
 
-## Artefatos
+## Artefatos e evidências
 
-Bundle configurado: NSIS x64, `src-tauri/target/release/bundle/nsis/Dinheirovisky_<versão>_x64-setup.exe`. Não há MSI configurado. Binários, instaladores, logs, screenshots de teste e bancos não entram no Git; somente assets selecionados da release são publicados na fase apropriada.
+Bundle: NSIS Windows x64, `src-tauri/target/release/bundle/nsis/Dinheirovisky_1.0.0_x64-setup.exe`. Não há MSI configurado. O executável interno continua `dinheirovisk.exe`.
 
-## Automação
+Validação local em 26/09/2026: 119 testes frontend e 101 testes Rust aprovados (um benchmark ignorado pela configuração existente); lint, formatação, TypeScript e Clippy sem erros. Aceitação nativa aprovada com instalação/desinstalação isoladas, versão 1.0.0 no backend e em Sobre, schema 14, integridade SQLite, regras financeiras, importação, anexos, offline, backup/restauração e acessibilidade automatizada.
 
-A CI valida código e build, sem criar tags/releases ou enviar instaladores. O fluxo oficial [tauri-apps/tauri-action](https://v2.tauri.app/distribute/pipelines/github/) pode ser avaliado na fase de publicação. Não adicionar permissões de escrita, tokens de release ou criação automática de releases nesta preparação.
+Desempenho na máquina de referência com a massa sintética documentada em `tests/README.md`: abertura 1,404 s; prévias de 2.000 linhas em 0,978 s (banco) e 1,232 s (cartão); RAM 377,59 MiB; CPU ociosa 0,20% de um núcleo lógico por 31 s. Todas as operações comuns ficaram dentro do limite de 500 ms.
 
-O comando de distribuição é npm run build:release. Ele remapeia caminhos do perfil de compilação para nomes neutros; depois do build, confirme que o executável não contém o caminho do perfil local. Flags personalizadas devem usar CARGO_ENCODED_RUSTFLAGS.
+Instalador final: **5.858.917 bytes**, ProductName/FileDescription `Dinheirovisky`, ProductVersion/FileVersion `1.0.0`, ícone oficial incorporado, Authenticode `NotSigned`. Payload Windows x64 (o bootstrap NSIS é um PE x86). Não foram encontrados os caminhos locais de perfil/workspace verificados no executável e no instalador.
+
+SHA-256: `bc9910d9da556113f86e86ae848da8ae2bda217f0e63bdb35695a6c432ef8cac`, também registrado no arquivo público `SHA256SUMS.txt`, sem caminhos locais.
+
+Os resultados finais de CI, commit, tag e draft serão registrados aqui após sua verificação. Binários entram somente nos assets selecionados da release; logs, bancos e capturas de teste permanecem locais e ignorados.
+
+A CI valida código e build sem publicar releases ou instaladores. O comando de distribuição é `npm run build:release`; flags personalizadas devem usar `CARGO_ENCODED_RUSTFLAGS` para preservar o remapeamento dos caminhos de compilação.
+
+## Dados para atualização posterior do site
+
+O site não é alterado nesta fase. Após publicar:
+
+- Versão: 1.0.0.
+- Release: https://github.com/DanielLinsAndrade/dinheirovisky/releases/tag/v1.0.0
+- Instalador: https://github.com/DanielLinsAndrade/dinheirovisky/releases/download/v1.0.0/Dinheirovisky_1.0.0_x64-setup.exe
+- Tamanho: 5.858.917 bytes (aproximadamente 5,59 MiB).
+- Data: registrar a data efetiva de publicação; a data do changelog é 26/09/2026.
+- Status: draft em preparação; o download ainda não está disponível publicamente.

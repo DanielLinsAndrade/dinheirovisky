@@ -6,6 +6,7 @@ const path = require("node:path");
 const { spawn, execFileSync, execFile } = require("node:child_process");
 const { createHash } = require("node:crypto");
 const net = require("node:net");
+const expectedVersion = require("../../package.json").version;
 let debugPort;
 const executable = path.resolve(process.argv[2]),
   output = path.resolve(process.argv[3]);
@@ -112,6 +113,7 @@ async function start(recovery = false) {
     const status = await invoke("get_app_status");
     assert.equal(path.resolve(status.databasePath), dbPath);
     assert.equal(status.schemaVersion, 14);
+    assert.equal(status.appVersion, expectedVersion);
   }
   return startupMs;
 }
@@ -483,6 +485,9 @@ async function functional() {
       await page.waitForFunction(
         () => !document.body.innerText.includes("Carregando"),
       );
+      if (name === "Sobre") {
+        assert.equal(await page.locator("dl div").filter({ has: page.getByText("Versão da aplicação", { exact: true }) }).locator("dd").innerText(), expectedVersion);
+      }
       if (name === "Início") {
         const commitments = page.getByRole("region", { name: "Vencimentos e recorrências" });
         await commitments.getByRole("button", { name: "Todos", exact: true }).waitFor();

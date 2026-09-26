@@ -14,7 +14,7 @@ vi.mock("../features/dashboard/DashboardPage", () => ({
   DashboardPage: () => <p>Resumo financeiro</p>,
 }));
 const status = {
-  appVersion: "0.1.0",
+  appVersion: "1.0.0",
   schemaVersion: 1,
   sqliteVersion: "3.53.0",
   databasePath: "C:/test/dinheirovisk.sqlite3",

@@ -2,7 +2,7 @@
 
 Mudanças relevantes para usuários. As versões seguem o versionamento semântico; esta preparação ainda não publica uma versão.
 
-## [Unreleased] — primeira versão pública em preparação
+## [1.0.0] - 2026-09-26
 
 ### Adicionado
 
@@ -16,4 +16,8 @@ Mudanças relevantes para usuários. As versões seguem o versionamento semânti
 - Temas claro/escuro/sistema, preferências regionais e navegação por teclado.
 - Instalador NSIS para Windows x64.
 
-A versão atual nos manifests é 0.1.0. A numeração e a data da primeira release serão confirmadas antes da publicação.
+### Privacidade e integridade
+
+- Dados locais, funcionamento offline e sem login.
+- Valores monetários exatos, validação de importações e verificação de integridade na restauração.
+- Instalador sem assinatura digital; o Windows pode exibir aviso de editor desconhecido.

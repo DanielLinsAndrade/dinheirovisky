@@ -20,7 +20,7 @@ foreach($name in @('Dinheirovisk Acceptance','Dinheirovisky Acceptance')) {
     }
   }
 }
-$new = Join-Path $repo 'src-tauri/target/release/bundle/nsis/Dinheirovisky Acceptance_0.1.0_x64-setup.exe'
+$new = Join-Path $repo 'src-tauri/target/release/bundle/nsis/Dinheirovisky Acceptance_1.0.0_x64-setup.exe'
 if(!(Test-Path -LiteralPath $old) -or !(Test-Path -LiteralPath $new)){throw 'Build the new isolated installer and provide the old one.'}
 $output = Join-Path $repo ('.validation/branding/' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 $install = Join-Path $output 'installed'
